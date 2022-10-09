@@ -1,8 +1,7 @@
 package handle
 
 import (
-	"fmt"
-	"gin-learn/request"
+	"gin-learn/service/user/api/internal/request"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -13,8 +12,6 @@ func HelloHandle(context *gin.Context) {
 		context.JSON(http.StatusInternalServerError, gin.H{"msg": err.Error()})
 		return
 	}
-	fmt.Println(HelloRequest)
-	fmt.Println(HelloRequest.Name, HelloRequest.Age)
 	resp := request.HelloResponse{Status: 1, Message: "success", Data: gin.H{
 		"name": HelloRequest.Name,
 		"age":  HelloRequest.Age,

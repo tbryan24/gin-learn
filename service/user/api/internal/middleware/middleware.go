@@ -12,11 +12,9 @@ func GlobalMiddleware(server *gin.Engine) {
 
 func RequestInfosMiddleware() gin.HandlerFunc {
 	return func(context *gin.Context) {
-		//path := context.FullPath()
-		//method := context.Request.Method
-		//fmt.Println("请求Path: ", path)
-		//fmt.Println("请求method: ", method)
+		//前置中间件
+		//fmt.Println("请求Path: ", context.FullPath(), "请求method: ", context.Request.Method, "状态码: ", context.Writer.Status())
 		context.Next()
-		//fmt.Println("状态码: ", context.Writer.Status())
+		//后置中间件
 	}
 }
